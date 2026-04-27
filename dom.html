@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Assignment</title>
+</head>
+<body>
+
+<script>
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.style.width = "300px";
+    card.style.border = "1px solid black";
+    card.style.padding = "10px";
+    card.style.margin = "20px auto";
+    card.style.textAlign = "center";
+
+    const img = document.createElement("img");
+    img.src = "https://via.placeholder.com/300";
+    img.style.width = "100%";
+
+    const title = document.createElement("h2");
+    title.innerText = "Card Title";
+
+    const desc = document.createElement("p");
+    desc.innerText = "This is a simple description created using DOM manipulation.";
+
+    title.classList.add("title");
+    desc.classList.add("description");
+
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(desc);
+
+    document.body.appendChild(card);
+</script>
+
+</body>
+</html>
