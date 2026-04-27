@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Selectors Assignment</title>
+</head>
+<body>
+
+<ul>
+    <li>Item 1 - Shashi</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+</ul>
+
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+</ul>
+
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3 - Shashi</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+</ul>
+
+<script>
+// 1. apply backgroundColor for the 2nd ul
+let ulList = document.getElementsByTagName("ul");
+ulList[1].style.backgroundColor = "lightblue";
+
+// 2. change the text color for 3rd item in the 3rd ul
+ulList[2].getElementsByTagName("li")[2].style.color = "red";
+
+// 3. apply backgroundColor for 2nd ul with querySelectorAll
+let allUL = document.querySelectorAll("ul");
+allUL[1].style.backgroundColor = "lightgreen";
+
+// 4. with the help of query selector add background color for first ul
+let firstUL = document.querySelector("ul");
+firstUL.style.backgroundColor = "lightyellow";
+
+// 5. change the text color for first ul li items
+let firstItems = firstUL.querySelectorAll("li");
+firstItems.forEach(item => {
+    item.style.color = "blue";
+});
+</script>
+
+</body>
+</html>
