@@ -15,3 +15,31 @@ REVOKE INSERT ON employees FROM shashi;
 
 -- Revoke all privileges
 REVOKE ALL PRIVILEGES ON employees FROM shashi;
+
+
+
+
+
+-- Create table
+CREATE TABLE students (
+    id INT,
+    name VARCHAR(50)
+);
+
+-- Insert data
+INSERT INTO students VALUES (1, 'Shashi');
+INSERT INTO students VALUES (2, 'Rahul');
+
+-- Savepoint
+SAVEPOINT sp1;
+
+-- Insert more data
+INSERT INTO students VALUES (3, 'Anil');
+
+-- Rollback to savepoint
+ROLLBACK TO sp1;
+
+-- This will remove id = 3
+
+-- Commit changes
+COMMIT;
