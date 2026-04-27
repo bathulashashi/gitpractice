@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Counter App</title>
+    <title>JavaScript Events Assignment</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Counter: <span id="count">0</span></h2>
+<h2>Counter Application</h2>
+<h3>Count: <span id="count">0</span></h3>
 
-<button onclick="increment()">Increment</button>
-<button onclick="decrement()">Decrement</button>
-<button onclick="reset()">Reset</button>
+<button id="inc">Increment</button>
+<button id="dec">Decrement</button>
+<button id="res">Reset</button>
+
+<hr>
+
+<h2>Change Background Color</h2>
+
+<button class="color-btn" data-color="red">Red</button>
+<button class="color-btn" data-color="blue">Blue</button>
+<button class="color-btn" data-color="green">Green</button>
+<button class="color-btn" data-color="yellow">Yellow</button>
 
 <script>
+    // Counter Logic
     let count = 0;
+    const display = document.getElementById("count");
 
-    function updateDisplay() {
-        document.getElementById("count").innerText = count;
-    }
-
-    function increment() {
+    document.getElementById("inc").addEventListener("click", () => {
         count++;
-        updateDisplay();
-    }
+        display.innerText = count;
+    });
 
-    function decrement() {
+    document.getElementById("dec").addEventListener("click", () => {
         count--;
-        updateDisplay();
-    }
+        display.innerText = count;
+    });
 
-    function reset() {
+    document.getElementById("res").addEventListener("click", () => {
         count = 0;
-        updateDisplay();
-    }
+        display.innerText = count;
+    });
+
+    // Color Change Logic
+    const buttons = document.querySelectorAll(".color-btn");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function() {
+            document.body.style.backgroundColor = this.dataset.color;
+        });
+    });
 </script>
 
 </body>
