@@ -1,0 +1,17 @@
+-- Create a sample user (syntax may vary by DB)
+CREATE USER shashi IDENTIFIED BY password123;
+
+-- Grant permissions
+GRANT SELECT, INSERT ON employees TO shashi;
+
+-- Grant all privileges
+GRANT ALL PRIVILEGES ON employees TO shashi;
+
+-- Grant with permission to further grant
+GRANT SELECT ON employees TO shashi WITH GRANT OPTION;
+
+-- Revoke specific permission
+REVOKE INSERT ON employees FROM shashi;
+
+-- Revoke all privileges
+REVOKE ALL PRIVILEGES ON employees FROM shashi;
