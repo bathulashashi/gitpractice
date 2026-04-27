@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Forms</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        .form-box {
+            width: 350px;
+            background: white;
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+        }
+
+        .blue {
+            background: #7fb3d5;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Form 1 -->
+<div class="form-box">
+    <h2>Registration Form</h2>
+    <input placeholder="First Name">
+    <input placeholder="Last Name">
+    <input placeholder="Email">
+    <input placeholder="Password">
+    <input placeholder="Re-type Password">
+    <input placeholder="Contact">
+    <select>
+        <option>Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+    <button class="btn">Submit</button>
+</div>
+
+<!-- Form 2 -->
+<div class="form-box">
+    <h2>Gym Registration Form</h2>
+    <input placeholder="Name">
+    <div class="row">
+        <input placeholder="Email">
+        <input placeholder="Phone">
+    </div>
+    <div class="row">
+        <input placeholder="Current Weight">
+        <input placeholder="Desired Weight">
+    </div>
+    <textarea placeholder="Address"></textarea>
+    <p>Trainer?</p>
+    <input type="radio"> Yes
+    <input type="radio"> No
+    <button class="btn">Apply</button>
+</div>
+
+<!-- Form 3 -->
+<div class="form-box blue">
+    <h2>Student Registration</h2>
+    <input placeholder="Firstname">
+    <input placeholder="Middlename">
+    <input placeholder="Lastname">
+    <select>
+        <option>Course</option>
+    </select>
+    <p>Gender</p>
+    <input type="radio"> Male
+    <input type="radio"> Female
+    <input placeholder="Phone">
+    <textarea placeholder="Address"></textarea>
+    <input placeholder="Email">
+    <input placeholder="Password">
+    <button class="btn">Register</button>
+</div>
+
+<!-- Form 4 -->
+<div class="form-box blue">
+    <h2>Basic Form</h2>
+    <input placeholder="Firstname">
+    <input placeholder="Lastname">
+    <select>
+        <option>Course</option>
+    </select>
+    <p>Gender</p>
+    <input type="radio"> Male
+    <input type="radio"> Female
+    <input placeholder="Phone">
+    <textarea placeholder="Address"></textarea>
+    <input placeholder="Email">
+    <input placeholder="Password">
+    <button class="btn">Submit</button>
+</div>
+
+</body>
+</html>
