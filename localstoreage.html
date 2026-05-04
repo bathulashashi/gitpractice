@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Signup and Login Form</title>
+</head>
+
+<body>
+
+    <h2>Signup Form</h2>
+
+    <form id="signupForm">
+
+        <input type="text" id="username" placeholder="Enter Username"><br><br>
+
+        <input type="email" id="email" placeholder="Enter Email"><br><br>
+
+        <input type="password" id="password" placeholder="Enter Password"><br><br>
+
+        <input type="password" id="confirmPassword" placeholder="Confirm Password"><br><br>
+
+        <button type="submit">Signup</button>
+
+    </form>
+
+    <p id="signupMessage"></p>
+
+    <hr>
+
+    <h2>Login Form</h2>
+
+    <form id="loginForm">
+
+        <input type="email" id="loginEmail" placeholder="Enter Email"><br><br>
+
+        <input type="password" id="loginPassword" placeholder="Enter Password"><br><br>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p id="loginMessage"></p>
+
+    <script>
+
+        // Signup Form
+
+        document.getElementById("signupForm").addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+            let signupMessage = document.getElementById("signupMessage");
+
+            // Validation
+
+            if (username == "" || email == "" || password == "" || confirmPassword == "") {
+
+                signupMessage.innerHTML = "All fields are required";
+                return;
+            }
+
+            if (password.length < 6) {
+
+                signupMessage.innerHTML = "Password must contain at least 6 characters";
+                return;
+            }
+
+            if (password != confirmPassword) {
+
+                signupMessage.innerHTML = "Passwords do not match";
+                return;
+            }
+
+            // Math Function
+
+            let userId = Math.floor(Math.random() * 10000);
+
+            // Date Function
+
+            let signupDate = new Date();
+
+            // Store Data in Local Storage
+
+            let user = {
+
+                id: userId,
+                username: username,
+                email: email,
+                password: password,
+                signupTime: signupDate.toLocaleString()
+            };
+
+            localStorage.setItem("user", JSON.stringify(user));
+
+            signupMessage.innerHTML = "Signup Successful";
+
+            // Timing Function
+
+            setTimeout(() => {
+
+                signupMessage.innerHTML = "Now Login Below";
+
+            }, 2000);
+
+        });
+
+
+
+        // Login Form
+
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            let loginEmail = document.getElementById("loginEmail").value;
+            let loginPassword = document.getElementById("loginPassword").value;
+
+            let loginMessage = document.getElementById("loginMessage");
+
+            // Get Data from Local Storage
+
+            let storedUser = JSON.parse(localStorage.getItem("user"));
+
+            if (storedUser == null) {
+
+                loginMessage.innerHTML = "No user found. Please signup first.";
+                return;
+            }
+
+            if (loginEmail == storedUser.email &&
+                loginPassword == storedUser.password) {
+
+                // Date Function
+
+                let loginDate = new Date();
+
+                loginMessage.innerHTML =
+                    "Login Successful <br>" +
+                    "Login Time: " + loginDate.toLocaleString();
+
+            }
+            else {
+
+                loginMessage.innerHTML = "Invalid Email or Password";
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
